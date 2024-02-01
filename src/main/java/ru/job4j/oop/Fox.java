@@ -5,5 +5,4 @@ public class Fox {
     void tryEat(Ball ball) {
         ball.tryRun(true);
     }
-
 }
