@@ -1,8 +1,8 @@
 package ru.job4j.pojo;
 
 public class Book {
-   private int numberPages;
-  private String nameBook;
+    private int numberPages;
+    private String nameBook;
 
     public int getNumberPages() {
         return numberPages;
@@ -20,9 +20,9 @@ public class Book {
         this.nameBook = nameBook;
     }
 
-    public Book (String nameBook, int numberPages) {
-     this.nameBook=nameBook;
-     this.numberPages=numberPages;
+    public Book(String nameBook, int numberPages) {
+        this.nameBook = nameBook;
+        this.numberPages = numberPages;
 
-  }
+    }
 }
