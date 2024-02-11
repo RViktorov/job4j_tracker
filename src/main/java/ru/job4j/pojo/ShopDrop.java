@@ -1,7 +1,5 @@
 package ru.job4j.pojo;
 
-import java.util.Arrays;
-
 public class ShopDrop {
 
     public static Product[] delete(Product[] products, int index) {
