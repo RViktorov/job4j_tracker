@@ -12,5 +12,4 @@ public class StartUI {
         Item item1 = new Item(1, "init");
         System.out.println(item1);
     }
-
 }
