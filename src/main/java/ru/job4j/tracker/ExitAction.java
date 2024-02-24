@@ -11,4 +11,5 @@ public class ExitAction implements UserAction {
         System.out.println("=== Завершение программы ===");
         return false;
     }
+
 }
