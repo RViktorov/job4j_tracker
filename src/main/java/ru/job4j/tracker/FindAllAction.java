@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 public class FindAllAction implements UserAction {
     private final Output output;
 
-    public FindAllAction (Output output) {
+    public FindAllAction(Output output) {
         this.output = output;
     }
 
@@ -14,7 +14,7 @@ public class FindAllAction implements UserAction {
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-       output.println("=== Вывод всех заявок ===");
+        output.println("=== Вывод всех заявок ===");
         Item[] items = tracker.findAll();
         if (items.length > 0) {
             for (Item item : items) {
@@ -25,5 +25,4 @@ public class FindAllAction implements UserAction {
         }
         return true;
     }
-
 }
