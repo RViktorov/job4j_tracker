@@ -28,6 +28,4 @@ public class Replace implements UserAction {
         return true;
     }
 
-
-
 }
