@@ -7,9 +7,11 @@ public class UserStore {
         for (User user : users) {
             if (user.getUsername().equals(login)) {
                 result = user;
-            } else {
-                throw new UserNotFoundException("user is not found");
+                break;
             }
+        }
+        if (result == null) {
+            throw new UserNotFoundException("user is not found");
         }
         return result;
     }
@@ -18,7 +20,7 @@ public class UserStore {
         if (user.getUsername().length() < 3 || !user.isValid()) {
             throw new UserInvalidException(("user is not valid"));
         }
-        return user.isValid();
+        return true;
     }
 
     public static void main(String[] args) {
@@ -37,5 +39,4 @@ public class UserStore {
             e.printStackTrace();
         }
     }
-
 }
