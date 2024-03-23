@@ -11,10 +11,11 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
-                "description='" + description + '\'' +
-                ", priority=" + priority +
-                '}';
+        return "Task{"
+                + "description='" + description
+                + '\''
+                + ", priority=" + priority
+                + '}';
     }
 
     public String getDescription() {

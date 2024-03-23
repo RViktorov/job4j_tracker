@@ -1,6 +1,7 @@
 package ru.job4j.search;
 
 import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PriorityQueueTest {
@@ -23,4 +24,5 @@ public class PriorityQueueTest {
         Task result = queue.take();
         assertThat(result.getDescription()).isEqualTo("low");
     }
+
 }
