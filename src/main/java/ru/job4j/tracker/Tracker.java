@@ -7,7 +7,6 @@ public class Tracker {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
 
-
     public Item add(Item item) {
         item.setId(ids++);
         items.add(item);
@@ -27,7 +26,7 @@ public class Tracker {
         List<Item> result = new ArrayList<>();
         for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getName().equals(key)) {
-                result.add(items.get(index));//
+                result.add(items.get(index));
             }
         }
         return result;
@@ -60,4 +59,5 @@ public class Tracker {
             items.remove(index);
         }
     }
+
 }

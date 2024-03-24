@@ -54,4 +54,5 @@ public class StartUI {
         List<UserAction> actions = Arrays.asList(actionsArray);
         new StartUI(output).init(input, tracker, actions);
     }
+
 }
