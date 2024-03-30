@@ -11,8 +11,8 @@ public class UniqueText {
         String[] text = duplicateText.split(" ");
         HashSet<String> check = new HashSet<>(Arrays.asList(origin));
         for (String textWord : text) {
-            result = check.contains(textWord);
-            if (!result) {
+            if (!check.contains(textWord)) {
+                result=false;
                 break;
             }
         }
