@@ -3,7 +3,6 @@ package ru.job4j.queue;
 import java.util.Queue;
 
 public class AppleStore {
-
     private final Queue<Customer> queue;
 
     private final int count;
@@ -14,27 +13,25 @@ public class AppleStore {
     }
 
     public String getLastHappyCustomer() {
-        int numberCustomer = 0;
         String name = null;
-        for (Customer lastCustomer : queue) {
-            if (numberCustomer == count - 1) {
-                name = lastCustomer.name();
-                queue.poll();
+        for (int i = 1; i <= count; i++) {
+            if (i == count) {
+                name = queue.poll().name();
                 break;
-            } else {
-                queue.poll();
-                numberCustomer++;
             }
+            queue.poll();
         }
         return name;
     }
 
     public String getFirstUpsetCustomer() {
         String name = null;
-        getLastHappyCustomer();
-        for (Customer lastCustomer : queue) {
-            name = lastCustomer.name();
-            break;
+        for (int i = 1; i <= count + 1; i++) {
+            if (i == count + 1) {
+                name = queue.poll().name();
+                break;
+            }
+            queue.poll();
         }
         return name;
     }
