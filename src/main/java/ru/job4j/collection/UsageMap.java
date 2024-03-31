@@ -8,6 +8,7 @@ public class UsageMap {
         result.put("ivanov@rambler.ru", "Ivanov Ivan Ivanovich");
         result.put("petrov@rambler.ru", "Petrov Petr Ivanovich");
         result.put("sidorov@rambler.ru", "Sidorov Petr Ivanovich");
+        result.put("ivanov@rambler.ru", "Vasin Petr Ivanovich");
         for (String key : result.keySet()) {
             System.out.println(result.get(key));
         }
