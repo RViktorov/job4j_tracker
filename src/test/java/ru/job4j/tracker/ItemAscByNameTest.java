@@ -19,4 +19,5 @@ class ItemAscByNameTest {
         List<Item> expected = new ArrayList<>(List.of(new Item(3, "Go"), new Item(2, "Run"), new Item(1, "Sleep")));
         assertThat(items).isEqualTo(expected);
     }
+
 }
