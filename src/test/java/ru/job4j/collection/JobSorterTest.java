@@ -99,4 +99,5 @@ class JobSorterTest {
                 new Job("X task", 0));
         assertThat(jobs).isEqualTo(expected);
     }
+
 }
