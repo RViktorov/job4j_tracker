@@ -2,8 +2,20 @@ package ru.job4j.bank;
 
 import java.util.Objects;
 
+/**
+ * Класс описывает данные клиента банка
+ *
+ * @author ROMAN VIKTOROV
+ * @version 1.0
+ */
 public class User {
+    /**
+     * Поле хранит данные паспорта
+     */
     private String passport;
+    /**
+     * Поле хранит имя клиента
+     */
     private String username;
 
     public User(String passport, String username) {
