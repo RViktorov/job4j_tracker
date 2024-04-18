@@ -15,11 +15,11 @@ public class FunctionalInterfaces {
         biConsumer.accept(2, "two");
         biConsumer.accept(3, "three");
         biConsumer.accept(4, "four");
-        biConsumer.accept(4, "five");
-        biConsumer.accept(5, "six");
-        biConsumer.accept(6, "seven");
+        biConsumer.accept(5, "five");
+        biConsumer.accept(6, "six");
+        biConsumer.accept(7, "seven");
 
-        BiPredicate<Integer, String> biPredicate = (key, string) -> (key % 2 == 0 || map.get(key).length() == 4);
+        BiPredicate<Integer, String> biPredicate = (key, string) -> (key % 2 == 0 || string.length() == 4);
         for (Integer key : map.keySet()) {
             if (biPredicate.test(key, map.get(key))) {
                 System.out.println("key: " + key + " value: " + map.get(key));
