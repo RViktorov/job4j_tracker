@@ -28,8 +28,8 @@ class FunctionCalculatorTest {
     @Test
     void whenQuadraticFunctionThenQuadraticResults() {
         FunctionCalculator function = new FunctionCalculator();
-        List<Double> result = function.diapason(5, 8, x -> (2 * x * 2) + (2 * x) + 2);
-        List<Double> expected = Arrays.asList(32D, 38D, 44D);
+        List<Double> result = function.diapason(5, 8, x -> (2 * x * x) + (2 * x) + 2);
+        List<Double> expected = Arrays.asList(62D, 86D, 114D);
         assertThat(result).containsAll(expected);
     }
 }
