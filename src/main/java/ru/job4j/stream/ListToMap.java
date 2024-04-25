@@ -11,4 +11,5 @@ public class ListToMap {
                 .collect(Collectors.toMap(element -> element.getSurname(), element -> element,
                         (existing, replacement) -> existing));
     }
+
 }

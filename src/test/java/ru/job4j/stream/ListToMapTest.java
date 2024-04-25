@@ -9,7 +9,6 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 class ListToMapTest {
     @Test
     void whenInputListNotHaveDuplicate() {
