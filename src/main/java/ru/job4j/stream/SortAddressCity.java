@@ -7,4 +7,5 @@ public class SortAddressCity implements Comparator<Address> {
     public int compare(Address o1, Address o2) {
         return o1.getCity().compareTo(o2.getCity());
     }
+
 }
