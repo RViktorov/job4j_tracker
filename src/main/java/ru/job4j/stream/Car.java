@@ -41,7 +41,6 @@ public class Car {
             return this;
         }
 
-
         Builder buildCreated(LocalDate created) {
             this.created = created;
             return this;
