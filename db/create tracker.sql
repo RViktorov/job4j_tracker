@@ -1,1 +1,2 @@
-CREATE DATABASE tracker;
+CREATE DATABASE tracker
+
