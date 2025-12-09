@@ -41,6 +41,9 @@ public class Item {
     public LocalDateTime getCreated() {
         return created;
     }
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
 
     @Override
     public String toString() {

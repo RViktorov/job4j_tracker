@@ -19,7 +19,7 @@ public class FindAllAction implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, Store tracker) {
         output.println("=== Вывод всех заявок ===");
         List<Item> items = tracker.findAll();
         if (items.size() > 0) {
@@ -27,7 +27,7 @@ public class FindAllAction implements UserAction {
                 output.println(item);
             }
         } else {
-            output.println("Хранилище еще не содержит заявок");
+            output.println("Хранилище еще не содержит заявок" + items.size());
         }
         return true;
     }
