@@ -18,6 +18,14 @@ public class SqlTracker implements Store {
         this.connection = connection;
     }
 
+    private Item addToItem(ResultSet rs) throws SQLException {
+        return new Item(
+                rs.getInt("id"),
+                rs.getString("name"),
+                rs.getTimestamp("created").toLocalDateTime()
+        );
+    }
+
     private void init() {
         try (InputStream input = SqlTracker.class.getClassLoader()
                 .getResourceAsStream("app.properties")) {
@@ -48,7 +56,6 @@ public class SqlTracker implements Store {
             ps.setString(1, item.getName());
             ps.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
             ps.executeUpdate();
-
             try (ResultSet rs = ps.getGeneratedKeys()) {
                 if (rs.next()) {
                     item.setId(rs.getInt(1));
@@ -59,7 +66,6 @@ public class SqlTracker implements Store {
         }
         return item;
     }
-
 
     @Override
     public boolean replace(int id, Item item) {
@@ -94,13 +100,8 @@ public class SqlTracker implements Store {
         String sql = "SELECT * FROM items";
         try (PreparedStatement ps = connection.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
-
             while (rs.next()) {
-                Item item = new Item();
-                item.setId(rs.getInt("id"));
-                item.setName(rs.getString("name"));
-                item.setCreated(rs.getTimestamp("created").toLocalDateTime());
-                items.add(item);
+                items.add(addToItem(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
