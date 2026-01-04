@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Properties;
 
 import static org.assertj.core.api.Assertions.*;
@@ -54,4 +56,53 @@ class SqlTrackerTest {
         tracker.add(item);
         assertThat(tracker.findById(item.getId())).isEqualTo(item);
     }
+
+    @Test
+    void whenReplaceExistingItemThenTrueReturnedAndItemUpdated() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("old name");
+        tracker.add(item);
+
+        Item updated = new Item("new name");
+        updated.setCreated(LocalDateTime.now());
+        boolean replaced = tracker.replace(item.getId(), updated);
+        Item result = tracker.findById(item.getId());
+        assertThat(replaced).isTrue();
+        assertThat(result.getName()).isEqualTo("new name");
+    }
+
+    @Test
+    void whenDeleteItemThenItIsNotFound() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("item");
+        tracker.add(item);
+
+        tracker.delete(item.getId());
+        Item result = tracker.findById(item.getId());
+        assertThat(result).isNull();
+    }
+
+    @Test
+    void whenFindByNameThenReturnOnlyMatchingItems() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item first = new Item("task");
+        Item second = new Item("task");
+        Item third = new Item("other");
+
+        tracker.add(first);
+        tracker.add(second);
+        tracker.add(third);
+        List<Item> result = tracker.findByName("task");
+
+        assertThat(result).hasSize(2);
+        assertThat(result).containsExactlyInAnyOrder(first, second);
+    }
+
+    @Test
+    void whenFindByIdForNonExistingItemThenNullReturned() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item result = tracker.findById(123);
+        assertThat(result).isNull();
+    }
+
 }
