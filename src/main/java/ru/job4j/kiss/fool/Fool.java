@@ -14,7 +14,6 @@ public class Fool {
             startAt++;
             String correctAnswer = getFizzBuzz(startAt);
             String userAnswer = input.nextLine().trim();
-
             if (!correctAnswer.equalsIgnoreCase(userAnswer)) {
                 System.out.println("Ошибка. Начинай снова.");
                 startAt = 1;
@@ -24,7 +23,7 @@ public class Fool {
         }
     }
 
-    private static String getFizzBuzz(int number) {
+    public static String getFizzBuzz(int number) {
         if (number % 15 == 0) {
             return "FizzBuzz";
         }
