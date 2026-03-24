@@ -1,6 +1,8 @@
-package ru.job4j.ood.srp;
+package ru.job4j.ood.srp.example;
 
-public class PassengerAirplane implements Flyable{
+import ru.job4j.ood.srp.example.Flyable;
+
+public class PassengerAirplane implements Flyable {
     @Override
     public void fly() {
 

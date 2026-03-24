@@ -2,7 +2,7 @@ package ru.job4j.ood.ocp.example;
 
 import java.util.List;
 
-public class ProductFilter {//класс будет меняться при добавлении каждого нового метода, нарушение OCP
+public class ProductFilter { //класс будет меняться при добавлении каждого нового метода, нарушение OCP
 
     public List<Product> filterByColor(List<Product> products, String color) {
 

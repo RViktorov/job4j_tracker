@@ -39,7 +39,7 @@ public class Cinema3DTest {
     }
 
     @Test
-    public void whenAddSeveralSessionsThenAllStored() {//Проверяем что сохраняется несколько сеансов
+    public void whenAddSeveralSessionsThenAllStored() { //Проверяем что сохраняется несколько сеансов
         Cinema cinema = new Cinema3D();
         Session s1 = new Session3D();
         Session s2 = new Session3D();
