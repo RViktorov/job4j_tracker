@@ -10,6 +10,10 @@ import java.util.List;
 public abstract class AbstractStore implements Store {
 
     protected List<Food> foods = new ArrayList<>();
+    protected static final double WAREHOUSE_LIMIT = 25.0;
+    protected static final double SHOP_LIMIT = 75.0;
+    protected static final double TRASH_LIMIT = 100.0;
+    protected FoodLifePercent foodLifePercent = new FoodLifePercent();
 
     @Override
     public void add(Food food) {
@@ -37,9 +41,4 @@ public abstract class AbstractStore implements Store {
         return foods.remove(food);
     }
 
-    protected double calculatesLifeFood(Food food) {
-        long generaShelfLife= ChronoUnit.DAYS.between(food.getCreateDate(), food.getExpiryDate());
-        long usedExpirationDate= ChronoUnit.DAYS.between(food.getCreateDate(), LocalDate.now());
-        return (double) usedExpirationDate / generaShelfLife * 100;
-    }
 }
