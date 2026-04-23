@@ -2,6 +2,7 @@ package ru.job4j.ood.lsp.task.qualitycontrol;
 
 import ru.job4j.ood.lsp.task.qualitycontrol.store.Store;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ControlQuality {
@@ -17,6 +18,17 @@ public class ControlQuality {
                 store.add(food);
                 return;
             }
+        }
+    }
+
+    public void resort() {
+        List<Food> allFoods = new ArrayList<>();
+        for (Store store : stores) {
+            allFoods.addAll(store.findAll());
+            store.clear();
+        }
+        for (Food food : allFoods) {
+            placementProductsInStorage(food);
         }
     }
 

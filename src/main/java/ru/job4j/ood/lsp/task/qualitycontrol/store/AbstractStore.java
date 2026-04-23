@@ -41,4 +41,9 @@ public abstract class AbstractStore implements Store {
         return foods.remove(food);
     }
 
+    @Override
+    public void clear() {
+        foods.clear();
+    }
+
 }
